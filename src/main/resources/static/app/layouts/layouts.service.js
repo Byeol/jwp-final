@@ -6,7 +6,7 @@
     .factory('Layout', Layout);
 
   /* @ngInject */
-  function Layout(Issue, $filter) {
+  function Layout(Issue, $filter, Constant) {
     let status = {
       active: null,
       login: false,
@@ -21,7 +21,7 @@
 
     function init() {
       let query = {
-        repoId: 1
+        repoId: Constant.repoId
       };
 
       Issue.findAll(query, {

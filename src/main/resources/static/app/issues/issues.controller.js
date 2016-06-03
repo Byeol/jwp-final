@@ -6,7 +6,7 @@
     .controller('IssuesController', IssuesController);
 
   /* @ngInject */
-  function IssuesController(issues, $scope, $state, ngDialog, Layout, Issue) {
+  function IssuesController(issues, $scope, $state, ngDialog, Layout, Issue, Constant) {
     /* jshint validthis: true */
     const vm = this;
     Layout.status.active = "issues";
@@ -21,7 +21,7 @@
 
     vm.submit = cb => {
       let query = {
-        repoId: 1
+        repoId: Constant.repoId
       };
 
       let issue = {

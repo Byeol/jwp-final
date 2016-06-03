@@ -47,9 +47,9 @@
     ];
   }
 
-  function getMilestones(Milestone) {
+  function getMilestones(Milestone, Constant) {
     let query = {
-      repoId: 1
+      repoId: Constant.repoId
     };
 
     return Milestone.findAll(query, {
@@ -57,13 +57,13 @@
     });
   }
 
-  function getMilestone($stateParams, Milestone) {
+  function getMilestone($stateParams, Milestone, Constant) {
     let number = $stateParams.number;
 
     return Milestone.find(number, {
       bypassCache: true,
       params: {
-        repoId: 1
+        repoId: Constant.repoId
       }
     });
   }

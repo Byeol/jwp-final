@@ -14,7 +14,7 @@
 
     vm.submit = cb => {
       let query = {
-        repoId: 1,
+        repoId: Constant.repoId,
         issueNo: issue.number
       };
 
@@ -33,7 +33,7 @@
     };
 
     vm.fileSubmit = files => {
-      let baseUrl = `${Constant.baseUrl}/repos/1/files`;
+      let baseUrl = `${Constant.baseUrl}/repos/${Constant.repoId}/files`;
       let formData = new FormData();
       formData.append('file', files[0]);
       $http.post(baseUrl, formData, {

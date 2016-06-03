@@ -67,9 +67,9 @@
     ];
   }
 
-  function getIssues(Issue) {
+  function getIssues(Issue, Constant) {
     let query = {
-      repoId: 1
+      repoId: Constant.repoId
     };
 
     return Issue.findAll(query, {
@@ -77,21 +77,21 @@
     });
   }
 
-  function getIssue($stateParams, Issue) {
+  function getIssue($stateParams, Issue, Constant) {
     let issueNo = $stateParams.number;
 
     return Issue.find(issueNo, {
       bypassCache: true,
       params: {
-        repoId: 1
+        repoId: Constant.repoId
       }
     });
   }
 
-  function getComments($stateParams, Comment) {
+  function getComments($stateParams, Comment, Constant) {
     let issueNo = $stateParams.number;
     let query = {
-      repoId: 1,
+      repoId: Constant.repoId,
       issueNo: issueNo
     };
 
@@ -100,9 +100,9 @@
     });
   }
 
-  function getLabels(Label) {
+  function getLabels(Label, Constant) {
     let query = {
-      repoId: 1
+      repoId: Constant.repoId
     };
 
     return Label.findAll(query, {
@@ -110,9 +110,9 @@
     });
   }
 
-  function getMilestones(Milestone) {
+  function getMilestones(Milestone, Constant) {
     let query = {
-      repoId: 1
+      repoId: Constant.repoId
     };
 
     return Milestone.findAll(query, {
@@ -120,9 +120,9 @@
     });
   }
 
-  function getCollaborators(Collaborator) {
+  function getCollaborators(Collaborator, Constant) {
     let query = {
-      repoId: 1
+      repoId: Constant.repoId
     };
 
     return Collaborator.findAll(query, {

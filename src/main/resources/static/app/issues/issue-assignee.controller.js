@@ -6,7 +6,7 @@
     .controller('IssueAssigneeController', IssueAssigneeController);
 
   /* @ngInject */
-  function IssueAssigneeController(issue, collaborators, Layout, Issue) {
+  function IssueAssigneeController(issue, collaborators, Layout, Issue, Constant) {
     /* jshint validthis: true */
     const vm = this;
     Layout.status.active = "issues";
@@ -17,7 +17,7 @@
 
     vm.setAssignee = assignee => {
       let query = {
-        repoId: 1,
+        repoId: Constant.repoId,
       };
 
       let issue = {
@@ -29,9 +29,6 @@
       };
 
       Issue.update(vm.issue.number, issue, options)
-        .then(issue => {
-          console.log(issue);
-        })
         .catch(err => alert(err.statusText));
     };
   }

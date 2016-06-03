@@ -6,7 +6,7 @@
     .controller('IssueMilestoneController', IssueMilestoneController);
 
   /* @ngInject */
-  function IssueMilestoneController(issue, milestones, Layout, Issue) {
+  function IssueMilestoneController(issue, milestones, Layout, Issue, Constant) {
     /* jshint validthis: true */
     const vm = this;
     Layout.status.active = "issues";
@@ -16,7 +16,7 @@
 
     vm.setMilestone = milestone => {
       let query = {
-        repoId: 1,
+        repoId: Constant.repoId,
       };
 
       let issue = {
@@ -28,9 +28,6 @@
       };
 
       Issue.update(vm.issue.number, issue, options)
-        .then(issue => {
-          console.log(issue);
-        })
         .catch(err => alert(err.statusText));
     };
   }

@@ -6,7 +6,7 @@
     .controller('MilestonesController', MilestonesController);
 
   /* @ngInject */
-  function MilestonesController(milestones, $scope, $state, ngDialog, Layout, Milestone) {
+  function MilestonesController(milestones, $scope, $state, ngDialog, Layout, Milestone, Constant) {
     /* jshint validthis: true */
     const vm = this;
     Layout.status.active = "milestones";
@@ -21,7 +21,7 @@
 
     vm.submit = cb => {
       let query = {
-        repoId: 1
+        repoId: Constant.repoId
       };
 
       let milestone = {

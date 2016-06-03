@@ -47,9 +47,9 @@
     ];
   }
 
-  function getLabels(Label) {
+  function getLabels(Label, Constant) {
     let query = {
-      repoId: 1
+      repoId: Constant.repoId
     };
 
     return Label.findAll(query, {
@@ -57,13 +57,13 @@
     });
   }
 
-  function getLabel($stateParams, Label) {
+  function getLabel($stateParams, Label, Constant) {
     let labelName = $stateParams.name;
 
     return Label.find(labelName, {
       bypassCache: true,
       params: {
-        repoId: 1
+        repoId: Constant.repoId
       }
     });
   }

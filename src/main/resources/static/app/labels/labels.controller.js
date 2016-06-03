@@ -6,7 +6,7 @@
     .controller('LabelsController', LabelsController);
 
   /* @ngInject */
-  function LabelsController(labels, $scope, $state, ngDialog, Layout, Label) {
+  function LabelsController(labels, $scope, $state, ngDialog, Layout, Label, Constant) {
     /* jshint validthis: true */
     const vm = this;
     Layout.status.active = "labels";
@@ -21,7 +21,7 @@
 
     vm.submit = cb => {
       let query = {
-        repoId: 1
+        repoId: Constant.repoId
       };
 
       let label = {
