@@ -31,8 +31,14 @@
       <textarea ng-model="vm.form.body" rows=5 class="mdl-textfield__input" id="comment" required></textarea>
       <label for="comment" class="mdl-textfield__label">Leave a comment</label>
     </div>
-    <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-      <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">add comment</span>
-    </button>
+    <div>
+        <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">add comment</span>
+        </button>
+        <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ng-click="vm.getFile()">
+        <i class="material-icons" role="presentation">add</i><span class="visuallyhidden">add file</span>
+        </button>
+    </div>
   </form>
+  <input id="comment-file-input" style="visibility: hidden" ng-model="vm.form.file" onchange="angular.element(this).scope().vm.fileSubmit(this.files)" type="file" name="file">
 </div>
