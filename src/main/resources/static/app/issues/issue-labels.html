@@ -1,0 +1,15 @@
+<div class="sidebar-wrapper">
+  <h3 class="left">Labels</h3>
+  <button id="issue-labels" class="mdl-button mdl-js-button mdl-button--icon right">
+    <i class="material-icons">settings</i>
+  </button>
+
+  <div ng-show="vm.issue.labels.length" ng-repeat="label in vm.issue.labels" class="labels clear">
+    <a ui-sref="label-detail({ name: label.name })" class="label" style="background-color: #{{label.color}};" title="{{label.name}}">{{label.name}}</a>
+  </div>
+  <span ng-hide="vm.issue.labels.length" class="milestone-name clear">None yet</span>
+
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="issue-labels">
+    <li ng-repeat="label in vm.labels" ng-click="vm.addLabel(label)" class="mdl-menu__item">{{label.name}}</li>
+  </ul>
+</div>

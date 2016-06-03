@@ -1,0 +1,27 @@
+<header class="mdl-layout__header mdl-layout__header--waterfall">
+  <div class="mdl-layout__header-row">
+    <!-- Title -->
+    <span class="mdl-layout-title">javajigi/slipp</span>
+    <div class="mdl-layout-spacer"></div>
+
+    <button id="account-btn" class="mdl-button mdl-js-button mdl-button--icon">
+      <i class="material-icons">account_box</i>
+    </button>
+
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="account-btn">
+      <li class="mdl-menu__item" ng-click="vm.openSignInDialog()">Sign in</li>
+      <li class="mdl-menu__item" ng-click="vm.openSignUpDialog()">Sign up</li>
+    </ul>
+  </div>
+  <!-- Tabs -->
+  <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+    <a ui-sref="issues" class="mdl-layout__tab" ng-class="{'is-active': vm.status.active === 'issues'}">
+      <span class="mdl-badge" data-badge="{{vm.status.open}}">Issues</span>
+    </a>
+    <a ui-sref="labels" class="mdl-layout__tab" ng-class="{'is-active': vm.status.active === 'labels'}">Labels</a>
+    <a ui-sref="milestones" class="mdl-layout__tab" ng-class="{'is-active': vm.status.active === 'milestones'}">Milestones</a>
+  </div>
+</header>
+<div class="mdl-layout__drawer">
+  <span class="mdl-layout-title">GitHub</span>
+</div>

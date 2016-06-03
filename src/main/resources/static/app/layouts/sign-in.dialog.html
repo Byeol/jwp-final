@@ -1,0 +1,22 @@
+<div class="new-issue">
+  <div class="pr">
+    <i class="material-icons">account_circle</i>
+  </div>
+  <form name="vm.form" ng-submit="vm.signIn(closeThisDialog)">
+    <div class="mdl-dialog__content">
+      <div ng-show="vm.error">{{vm.error}}</div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input ng-model="vm.form.username" class="mdl-textfield__input" type="text" id="sign-in__username" required>
+        <label class="mdl-textfield__label" for="sign-in__username"><strong>Username</strong></label>
+      </div>
+      <p>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input ng-model="vm.form.password" class="mdl-textfield__input" type="password" id="sign-in__password" required>
+        <label class="mdl-textfield__label" for="sign-in__password"><strong>Password</strong></label>
+      </div>
+    </div>
+    <div class="mdl-dialog__actions mdl-dialog__actions">
+      <button type="submit" class="mdl-button">Sign in</button>
+    </div>
+  </form>
+</div>

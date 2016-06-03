@@ -1,0 +1,15 @@
+<div class="sidebar-wrapper">
+  <h3 class="left">Milestone</h3>
+  <button id="issue-milestone" class="mdl-button mdl-js-button mdl-button--icon right">
+    <i class="material-icons">settings</i>
+  </button>
+
+  <a ng-show="vm.issue.milestone" title="{{vm.issue.milestone.title}}" ui-sref="milestone-detail({ number: vm.issue.milestone.number })" class="milestone-name clear">
+    <span>{{vm.issue.milestone.title}}</span>
+  </a>
+  <span ng-hide="vm.issue.milestone" class="milestone-name clear">No milestone</span>
+
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="issue-milestone">
+    <li ng-repeat="milestone in vm.milestones" ng-click="vm.setMilestone(milestone)" class="mdl-menu__item">{{milestone.title}}</li>
+  </ul>
+</div>

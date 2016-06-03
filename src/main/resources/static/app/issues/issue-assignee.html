@@ -1,0 +1,18 @@
+<div class="sidebar-wrapper">
+  <h3 class="left">Assignee</h3>
+  <button id="issue-assignee" class="mdl-button mdl-js-button mdl-button--icon right">
+    <i class="material-icons">settings</i>
+  </button>
+
+  <span ng-show="vm.issue.assignee">
+    <p class="clear">
+      <img alt="@{{vm.issue.assignee.username}}" class="avatar" height="20" ng-src="{{vm.issue.assignee.avatarUrl}}" width="20">
+      <a href="https://github.com/{{vm.issue.assignee.username}}" class="assignee">{{vm.issue.assignee.username}}</a>
+    </p>
+  </span>
+  <span ng-hide="vm.issue.assignee" class="milestone-name clear">No one</span>
+
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="issue-assignee">
+    <li ng-repeat="collaborator in vm.collaborators" ng-click="vm.setAssignee(collaborator)" class="mdl-menu__item">{{collaborator.username}}</li>
+  </ul>
+</div>

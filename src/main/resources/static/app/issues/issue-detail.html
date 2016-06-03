@@ -1,0 +1,59 @@
+<div class="issues-back">
+  <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ui-sref="issues" title="go back" role="button">
+    <i class="material-icons" role="presentation">arrow_back</i>
+  </a>
+</div>
+<div class="issues__posts mdl-grid">
+  <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+    <div class="mdl-card__menu">
+      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">edit</i>
+      </button>
+    </div>
+    <div class="mdl-card__title mdl-color-text--grey-50">
+      <h1 class="gh-header-title">
+        <span class="js-issue-title">{{vm.issue.title}}</span>
+        <span class="gh-header-number">#{{vm.issue.number}}</span>
+      </h1>
+    </div>
+    <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+      <div class="flex-table gh-header-meta">
+        <div ng-show="vm.issue.state === 'open'" class="state state-open"><span class="octicon octicon-issue-opened"></span>&nbsp;Open</div>
+        <div ng-show="vm.issue.state === 'closed'" class="state state-closed"><span class="octicon octicon-issue-closed"></span>&nbsp;Closed</div>
+        <a href="https://github.com/{{vm.issue.createdBy.username}}" class="author">{{vm.issue.createdBy.username}}</a>&nbsp;opened this&nbsp;<span class="noun">Issue</span>&nbsp;<relative-time datetime="{{vm.issue.createdDate}}">{{vm.issue.createdDate | date:'mediumDate'}}</relative-time>
+      </div>
+    </div>
+    <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+      <div class="flex-table gh-header-meta">
+        <div class="flex-table-item sidebar-labels" ui-view="issue-labels"></div>
+        <div class="flex-table-item sidebar-milestone" ui-view="issue-milestone"></div>
+        <div class="flex-table-item sidebar-assignee" ui-view="issue-assignee"></div>
+      </div>
+    </div>
+    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+      <a href="https://github.com/{{vm.issue.createdBy.username}}">
+        <img class="minilogo" height="48" width="48" ng-src="{{vm.issue.createdBy.avatarUrl}}" alt="@{{vm.issue.createdBy.username}}">
+      </a>
+      <div>
+        <div class="author-text">
+          <strong>
+            <a href="https://github.com/{{vm.issue.createdBy.username}}" class="author">{{vm.issue.createdBy.username}}</a>
+          </strong>
+        </div>
+        <relative-time datetime="{{vm.issue.createdDate}}">{{vm.issue.createdDate | date:'mediumDate'}}</relative-time>
+      </div>
+      <div class="section-spacer"></div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">thumb_up</i><span class="visuallyhidden">like comment</span>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">thumb_down</i><span class="visuallyhidden">dislike comment</span>
+      </button>
+    </div>
+    <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+      <p ng-if="vm.issue.body">{{vm.issue.body}}</p>
+      <p ng-if="!vm.issue.body" class="text-muted"><em>No description provided.</em></p>
+    </div>
+    <div ui-view="comments"></div>
+  </div>
+</div>

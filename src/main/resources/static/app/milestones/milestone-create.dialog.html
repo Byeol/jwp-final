@@ -1,0 +1,17 @@
+<div class="new-issue">
+  <div class="pr">
+    <i class="material-icons">create</i>
+  </div>
+  <form name="vm.form" ng-submit="vm.submit(closeThisDialog)">
+    <div class="mdl-dialog__content">
+      <div class="mdl-textfield mdl-js-textfield">
+        <input ng-model="vm.form.title" class="mdl-textfield__input" type="text" id="new-issue__title" required>
+        <label class="mdl-textfield__label" for="new-issue__title"><strong>Title</strong></label>
+      </div>
+      <textarea ng-model="vm.form.description" rows=5 class="mdl-textfield__input" id="new-issue__comment" placeholder="Description" aria-label="Description"></textarea>
+    </div>
+    <div class="mdl-dialog__actions mdl-dialog__actions">
+      <button type="submit" class="mdl-button">Create milestone</button>
+    </div>
+  </form>
+</div>
