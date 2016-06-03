@@ -6,7 +6,7 @@
     .controller('CommentsController', CommentsController);
 
   /* @ngInject */
-  function CommentsController(issue, comments, $scope, $state, $http, Layout, Comment) {
+  function CommentsController(issue, comments, $scope, $state, $http, Layout, Comment, Constant) {
     /* jshint validthis: true */
     const vm = this;
 
@@ -33,7 +33,7 @@
     };
 
     vm.fileSubmit = files => {
-      let baseUrl = 'http://localhost:8080/repos/1/files';
+      let baseUrl = `${Constant.baseUrl}/repos/1/files`;
       let formData = new FormData();
       formData.append('file', files[0]);
       $http.post(baseUrl, formData, {
