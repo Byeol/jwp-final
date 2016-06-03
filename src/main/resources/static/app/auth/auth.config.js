@@ -6,8 +6,8 @@
     .run(appRun);
 
   /* @ngInject */
-  function appRun($rootScope, $http, authDefaults, authService, Layout) {
-    authDefaults.authenticateUrl = '/user';
+  function appRun($rootScope, $http, authDefaults, authService, Layout, Constant) {
+    authDefaults.authenticateUrl = `${Constant.baseUrl}/user`;
 
     if (authService.getAuth()) {
       login();
