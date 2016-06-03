@@ -7,7 +7,7 @@
 
   /* @ngInject */
   function appRun($rootScope, $http, authDefaults, authService) {
-    authDefaults.authenticateUrl = 'http://localhost:8080/user';
+    authDefaults.authenticateUrl = '/user';
 
     $rootScope.$on('login', () => {
       $http.defaults.headers.common.Authorization = authService.getAuth();
