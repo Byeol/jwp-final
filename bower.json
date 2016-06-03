@@ -15,7 +15,8 @@
     "time-elements": "^0.5.0",
     "ng-dialog": "^0.6.1",
     "angular-basicauth": "^0.3.0",
-    "getmdl-select": "*"
+    "getmdl-select": "*",
+    "octicons": "^3.5.0"
   },
   "resolutions": {
     "angular": "1.5.6"
