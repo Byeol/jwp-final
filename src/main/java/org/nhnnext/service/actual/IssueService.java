@@ -66,11 +66,8 @@ public class IssueService extends RepositoryEntityService<Issue, Integer> {
 		update(entity.getMilestone(), entity::setMilestone, repo, milestoneService);
 
 		Set<Label> labels = new HashSet<>();
-		System.out.println(entity.getLabels());
 		entity.getLabels().forEach(label -> update(label, labels::add, repo, labelService));
 		entity.updateLabels(labels);
-		System.out.println(labels);
-		System.out.println(entity.getLabels());
 	}
 
 	private <T> void update(T value, Consumer<? super T> consumer) {

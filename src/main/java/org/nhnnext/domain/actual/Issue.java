@@ -73,7 +73,7 @@ public class Issue extends OrderedRepositoryEntity<Issue> {
 	@RestResource(exported = true)
 	@JsonProperty
 	@JsonDeserialize(using = LabelsDeserializer.class)
-	private final Set<Label> labels = new HashSet<>();
+	private Set<Label> labels = new HashSet<>();
 
 	private static class LabelsDeserializer extends JsonDeserializer<Set<Label>> {
 
@@ -121,7 +121,7 @@ public class Issue extends OrderedRepositoryEntity<Issue> {
 		update(entity.getAssignee(), this::setAssignee);
 		update(entity.getState(), this::setState);
 		update(entity.getMilestone(), this::setMilestone);
-//		update(entity.getLabels(), this::setLabels);
+		update(entity.getLabels(), this::setLabels);
 	}
 
 	public enum State {

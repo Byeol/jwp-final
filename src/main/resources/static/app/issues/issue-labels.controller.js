@@ -6,7 +6,7 @@
     .controller('IssueLabelsController', IssueLabelsController);
 
   /* @ngInject */
-  function IssueLabelsController(issue, labels, Layout, IssueLabel, Constant) {
+  function IssueLabelsController(issue, labels, Layout, Issue, Constant) {
     /* jshint validthis: true */
     const vm = this;
     Layout.status.active = "issues";
@@ -17,19 +17,18 @@
     vm.addLabel = label => {
       let query = {
         repoId: Constant.repoId,
-        issueNo: vm.issue.number
       };
 
-      let issueLabel = [
-        label.name
-      ];
+      let issue = {
+        'labels': label.name
+      };
 
       let options = {
         params: query
       };
 
-      IssueLabel.create(issueLabel, options)
-        .catch(err => alert(err));
+      Issue.update(vm.issue.number, issue, options)
+        .catch(err => alert(err.statusText));
     };
   }
 })();
