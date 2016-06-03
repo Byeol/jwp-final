@@ -3,7 +3,7 @@
 
   angular.module('app.core')
     .constant("Constant", {
-      baseUrl: "http://localhost:8080",
+      baseUrl: ".",
       repoId: 1
     });
 })();
