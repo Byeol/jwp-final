@@ -37,6 +37,8 @@
         .error(() => vm.error = 'Incorrect username or password.');
     };
 
+    vm.signOut = authService.logout;
+
     vm.signUp = cb => {
       let user = {
         username: vm.form.username,

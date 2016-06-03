@@ -9,8 +9,10 @@
     </button>
 
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="account-btn">
-      <li class="mdl-menu__item" ng-click="vm.openSignInDialog()">Sign in</li>
-      <li class="mdl-menu__item" ng-click="vm.openSignUpDialog()">Sign up</li>
+      <li ng-if="!vm.status.login" class="mdl-menu__item" ng-click="vm.openSignInDialog()">Sign in</li>
+      <li ng-if="!vm.status.login" class="mdl-menu__item" ng-click="vm.openSignUpDialog()">Sign up</li>
+      <li ng-if="vm.status.login" class="mdl-menu__item mdl-menu__item--full-bleed-divider">Signed in as <strong>{{vm.status.username}}</strong></li>
+      <li ng-if="vm.status.login" class="mdl-menu__item" ng-click="vm.signOut()">Sign out</li>
     </ul>
   </div>
   <!-- Tabs -->

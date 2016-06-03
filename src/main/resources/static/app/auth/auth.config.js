@@ -6,11 +6,26 @@
     .run(appRun);
 
   /* @ngInject */
-  function appRun($rootScope, $http, authDefaults, authService) {
+  function appRun($rootScope, $http, authDefaults, authService, Layout) {
     authDefaults.authenticateUrl = '/user';
 
-    $rootScope.$on('login', () => {
+    if (authService.getAuth()) {
+      login();
+    }
+
+    $rootScope.$on('login', login);
+    $rootScope.$on('logout', logout);
+
+    function login() {
       $http.defaults.headers.common.Authorization = authService.getAuth();
-    });
+      Layout.status.login = true;
+      Layout.status.username = authService.username();
+    }
+
+    function logout() {
+      delete $http.defaults.headers.common.Authorization;
+      Layout.status.login = false;
+      Layout.status.username = null;
+    };
   }
 })();

@@ -8,7 +8,9 @@
   /* @ngInject */
   function Layout(Issue, $filter) {
     let status = {
-      active: null
+      active: null,
+      login: false,
+      username: null
     };
 
     init();
